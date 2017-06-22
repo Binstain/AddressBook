@@ -33,7 +33,8 @@ namespace AddressBook
             ID = IDTextBox.Text;
             password = PWTextBox.Password;
             App.connection = new OracleConnection();
-            App.connection.ConnectionString = $"Data Source=orcl;User Id={ID};Password={password}";
+            //App.connection.ConnectionString = $"Data Source=orcl;User Id={ID};Password={password}";
+            App.connection.ConnectionString = $"Data Source=(DESCRIPTION =(ADDRESS = (PROTOCOL = TCP)(HOST = localhost)(PORT = 1521))(CONNECT_DATA =(SERVER = DEDICATED)(SERVICE_NAME = orcl)));User Id={ID};Password={password}";
             try
             {
                 App.connection.Open();
